@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -13,16 +17,68 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true,
+    "incremental": false,
     "plugins": [
       {
         "name": "next"
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "#forms": [
+        "./src/components/forms"
+      ],
+      "#forms/*": [
+        "./src/components/forms/*"
+      ],
+      "#pages": [
+        "./src/components/pages"
+      ],
+      "#pages/*": [
+        "./src/components/pages/*"
+      ],
+      "#fcontrols": [
+        "./src/components/formControls"
+      ],
+      "#fcontrols/*": [
+        "./src/components/formControls/*"
+      ],
+      "#ui": [
+        "./src/components/ui"
+      ],
+      "#ui/*": [
+        "./src/components/ui/*"
+      ],
+      "#comp": [
+        "./src/components"
+      ],
+      "#comp/*": [
+        "./src/components/*"
+      ],
+      "#services": [
+        "./src/services"
+      ],
+      "#services/*": [
+        "./src/services/*"
+      ],
+      "#types": [
+        "./src/types"
+      ],
+      "#types/*": [
+        "./src/types/*"
+      ],
+      "#/*": [
+        "./src/*"
+      ],
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "baseUrl": ".",
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

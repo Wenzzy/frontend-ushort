@@ -1,0 +1,34 @@
+name: Vercel production deploy
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+env:
+  PROJECT_NAME: go-ushort
+  VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+  NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET }}
+  NEXTAUTH_URL: ${{ secrets.VERCEL_GENERATED_URL }}
+  NEXT_PUBLIC_USHORT_DOMAIN: ${{ secrets.BACKEND_DOMAIN }}
+
+jobs:
+  Deploy-Preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18.10.0
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest --immutable
+      - name: Deploy Project Artifacts to Vercel
+        run: >
+          vercel deploy
+          -b NEXT_PUBLIC_USHORT_DOMAIN
+          -e NEXTAUTH_SECRET=$NEXTAUTH_SECRET
+          -e NEXTAUTH_URL=$NEXTAUTH_URL
+          -e NEXT_PUBLIC_API_LINK=$NEXT_PUBLIC_API_LINK
+          --token=$VERCEL_TOKEN
+          --scope $VERCEL_PROJECT_ID

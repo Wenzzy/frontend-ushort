@@ -1,34 +1,74 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<p align="center">
+ <img src='assets/logo.jpg' width='500'>
+</p>
 
-## Getting Started
+<!-- [![CI-CD pipeline](https://github.com/WenzzyX/frontend-ushort/actions/workflows/ci-cd.production.yml/badge.svg)](https://github.com/WenzzyX/frontend-ushort/actions/workflows/ci-cd.production.yml) -->
 
-First, run the development server:
+&nbsp;\
+My pet project that shortens long links ;)\
+&nbsp;\
+_`https://very-long-site-subdomain.long-domain-ffff.com/my-best-blog`_ \
+-> `https://ushort.bio/g32d` \
+_ushort.bio - is not my domain, it's just an example_
 
-```bash
-npm run dev
-# or
+## Todo
+
+- [x] Layout
+- [x] Authorization (next-auth with refresh token)
+- [x] Configure interceptors for axios
+- [x] Add pages for CRUD operations with links
+- [x] Add Dockerfile
+- [ ] Add CI-CD pipeline (_in progress_)
+- [ ] Configure deploy (vercel)
+- [ ] Write tests
+
+### General
+
+```shell
 yarn dev
-# or
-pnpm dev
+# Run nextjs app in development mode
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+```shell
+yarn build
+# build for production
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```shell
+docker build . \
+	--platform=linux/amd64 \
+	-t frontend-ushort \
+	--build-arg NEXT_PUBLIC_USHORT_DOMAIN="ushort.bio"
+# build for amd64
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+docker build . \
+	-t frontend-ushort \
+	--build-arg NEXT_PUBLIC_USHORT_DOMAIN="ushort.bio"
+# build docker image
+```
 
-## Learn More
+```shell
+docker run -d --rm -p 80:3000 \
+	--name frontend-ushort \
+	-e NEXTAUTH_SECRET="test-secret" \
+	-e NEXTAUTH_URL="http://localhost" frontend-ushort
+# run docker container
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Environment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### Client side
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+| param                       | type     | required | default | description                                    |
+| --------------------------- | -------- | -------- | ------- | ---------------------------------------------- |
+| `NEXT_PUBLIC_USHORT_DOMAIN` | `string` | `yes`    | `-`     | Backend (go-ushort) domain (ex.: "ushort.bio") |
 
-## Deploy on Vercel
+&nbsp;\
+&nbsp;
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+#### Server side
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+| param             | type     | required | default | description                                  |
+| ----------------- | -------- | -------- | ------- | -------------------------------------------- |
+| `NEXTAUTH_SECRET` | `string` | `yes`    | `-`     | Secret for generating session-token          |
+| `NEXTAUTH_URL`    | `string` | `yes`    | `-`     | Base front-end url (ex.: "http://localhost") |
