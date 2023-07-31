@@ -7,6 +7,9 @@
 &nbsp;\
 My pet project that shortens long links ;)\
 &nbsp;\
+Back-end: [go-ushort](https://github.com/WenzzyX/go-ushort)
+&nbsp;\
+&nbsp;\
 _`https://very-long-site-subdomain.long-domain-ffff.com/my-best-blog`_ \
 -> `https://ushort.bio/g32d` \
 _ushort.bio - is not my domain, it's just an example_
