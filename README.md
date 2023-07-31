@@ -7,7 +7,8 @@
 &nbsp;\
 My pet project that shortens long links ;)\
 &nbsp;\
-Back-end: [go-ushort](https://github.com/WenzzyX/go-ushort)
+Back-end: [go-ushort](https://github.com/WenzzyX/go-ushort)\
+Design: [figma](https://www.figma.com/community/file/1267929060708092881)
 &nbsp;\
 &nbsp;\
 _`https://very-long-site-subdomain.long-domain-ffff.com/my-best-blog`_ \
