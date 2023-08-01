@@ -41,12 +41,12 @@ yarn build
 docker build . \
 	--platform=linux/amd64 \
 	-t frontend-ushort \
-	--build-arg NEXT_PUBLIC_USHORT_DOMAIN="ushort.us"
+	--build-arg NEXT_PUBLIC_BACKEND_URL="https://ushort.us"
 # build for amd64
 
 docker build . \
 	-t frontend-ushort \
-	--build-arg NEXT_PUBLIC_USHORT_DOMAIN="ushort.us"
+	--build-arg NEXT_PUBLIC_BACKEND_URL="https://ushort.us"
 # build docker image
 ```
 
@@ -62,16 +62,17 @@ docker run -d --rm -p 80:3000 \
 
 #### Client side
 
-| param                       | type     | required | default | description                                    |
-| --------------------------- | -------- | -------- | ------- | ---------------------------------------------- |
-| `NEXT_PUBLIC_USHORT_DOMAIN` | `string` | `yes`    | `-`     | Backend (go-ushort) domain (ex.: "ushort.bio") |
+| param                     | type     | required | default | description                                        |
+| ------------------------- | -------- | -------- | ------- | -------------------------------------------------- |
+| `NEXT_PUBLIC_BACKEND_URL` | `string` | `yes`    | `-`     | Backend (go-ushort) url (ex.: "https://ushort.us") |
 
 &nbsp;\
 &nbsp;
 
 #### Server side
 
-| param             | type     | required | default | description                                  |
-| ----------------- | -------- | -------- | ------- | -------------------------------------------- |
-| `NEXTAUTH_SECRET` | `string` | `yes`    | `-`     | Secret for generating session-token          |
-| `NEXTAUTH_URL`    | `string` | `yes`    | `-`     | Base front-end url (ex.: "http://localhost") |
+| param                     | type     | required | default | description                                        |
+| ------------------------- | -------- | -------- | ------- | -------------------------------------------------- |
+| `NEXTAUTH_SECRET`         | `string` | `yes`    | `-`     | Secret for generating session-token                |
+| `NEXTAUTH_URL`            | `string` | `yes`    | `-`     | Base front-end url (ex.: "http://localhost")       |
+| `NEXT_PUBLIC_BACKEND_URL` | `string` | `yes`    | `-`     | Backend (go-ushort) url (ex.: "https://ushort.us") |

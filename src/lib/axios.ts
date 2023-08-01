@@ -2,7 +2,7 @@ import axios from 'axios'
 import { Session } from 'next-auth'
 import { getSession, signIn } from 'next-auth/react'
 
-const BASE_URL = 'http://localhost:5005/api/v1'
+const BASE_URL = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1`
 
 const baseAxios = axios.create({
   baseURL: BASE_URL,

@@ -59,7 +59,7 @@ export function UpdateLinkForm() {
         <p className="text-2md">
           Shorted URL:{' '}
           <span className="text-accent">
-            https://{process.env.NEXT_PUBLIC_USHORT_DOMAIN}/{link.alias}
+            {process.env.NEXT_PUBLIC_BACKEND_URL}/{link.alias}
           </span>
         </p>
         <p className="text-2md">

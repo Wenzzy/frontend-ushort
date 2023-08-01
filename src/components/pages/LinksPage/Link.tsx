@@ -26,7 +26,7 @@ export function Link({ id, name, realUrl, alias }: LinkModel) {
     },
   )
 
-  const shortedUrl = `https://${process.env.NEXT_PUBLIC_USHORT_DOMAIN}/${alias}`
+  const shortedUrl = `/${process.env.NEXT_PUBLIC_BACKEND_URL}/${alias}`
 
   const handleEdit = () => router.push(`/links/${id}`)
 

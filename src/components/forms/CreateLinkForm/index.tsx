@@ -57,10 +57,7 @@ export function CreateLinkForm() {
           </form>
         </FormProvider>
         {isSuccess && (
-          <FormResult
-            isLink
-            text={`https://${process.env.NEXT_PUBLIC_USHORT_DOMAIN}/${res.alias}`}
-          />
+          <FormResult isLink text={`${process.env.NEXT_PUBLIC_BACKEND_URL}/${res.alias}`} />
         )}
       </div>
     </div>
