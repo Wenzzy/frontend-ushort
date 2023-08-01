@@ -12,7 +12,7 @@ Design: [figma](https://www.figma.com/community/file/1267929060708092881)
 &nbsp;\
 &nbsp;\
 _`https://very-long-site-subdomain.long-domain-ffff.com/my-best-blog`_ \
--> `https://ushort.us/g32d` \
+-> `https://ushort.us/g32d`
 
 ## Todo
 

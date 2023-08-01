@@ -36,6 +36,7 @@ const getBaseAuthorize = (route: string, defaultErrorMsg: string) => {
 
       return user || null
     } catch (error: any) {
+      console.log('🚀 ~ file: [...nextAuth].ts:39 ~ getBaseAuthorize ~ error:', error)
       if (error.response && error.response.status === 422 && error?.response.data) {
         throw new Error(JSON.stringify(error.response.data))
       }
