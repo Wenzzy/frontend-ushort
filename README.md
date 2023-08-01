@@ -12,8 +12,7 @@ Design: [figma](https://www.figma.com/community/file/1267929060708092881)
 &nbsp;\
 &nbsp;\
 _`https://very-long-site-subdomain.long-domain-ffff.com/my-best-blog`_ \
--> `https://ushort.bio/g32d` \
-_ushort.bio - is not my domain, it's just an example_
+-> `https://ushort.us/g32d` \
 
 ## Todo
 
@@ -22,8 +21,8 @@ _ushort.bio - is not my domain, it's just an example_
 - [x] Configure interceptors for axios
 - [x] Add pages for CRUD operations with links
 - [x] Add Dockerfile
+- [x] Configure deploy (vercel)
 - [ ] Add CI-CD pipeline (_in progress_)
-- [ ] Configure deploy (vercel)
 - [ ] Write tests
 
 ### General
@@ -42,12 +41,12 @@ yarn build
 docker build . \
 	--platform=linux/amd64 \
 	-t frontend-ushort \
-	--build-arg NEXT_PUBLIC_USHORT_DOMAIN="ushort.bio"
+	--build-arg NEXT_PUBLIC_USHORT_DOMAIN="ushort.us"
 # build for amd64
 
 docker build . \
 	-t frontend-ushort \
-	--build-arg NEXT_PUBLIC_USHORT_DOMAIN="ushort.bio"
+	--build-arg NEXT_PUBLIC_USHORT_DOMAIN="ushort.us"
 # build docker image
 ```
 
